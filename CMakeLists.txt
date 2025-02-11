@@ -13,9 +13,17 @@ FetchContent_Declare(glm GIT_REPOSITORY https://github.com/g-truc/glm.git GIT_TA
 FetchContent_MakeAvailable(glm)
 
 
-add_definitions(-DPROJECT_ROOT="${CMAKE_SOURCE_DIR}")
-set(TEST_FILE "test/01 image read write.cpp")
-add_executable(TEST ${TEST_FILE})
+# Sources
+set(SOURCES
+    "src/base/ciao.cpp"
+)
+
+
+set(TEST_FILE "test/01 image_read_write glm.cpp")
+add_executable(TEST ${TEST_FILE} ${SOURCES})
 
 target_link_libraries(TEST PRIVATE STBI)
 target_link_libraries(TEST PRIVATE glm)
+
+
+add_definitions(-DPROJECT_ROOT="${CMAKE_SOURCE_DIR}")
