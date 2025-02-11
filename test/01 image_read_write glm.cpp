@@ -6,7 +6,11 @@
 
 #include <iostream>
 
+#include <glm/vec3.hpp>
+
+
 using namespace std;
+
 
 int main() {
     int width, height, channels;
