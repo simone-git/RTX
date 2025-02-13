@@ -12,14 +12,11 @@ target_include_directories(STBI INTERFACE lib/stbi)
 FetchContent_Declare(glm GIT_REPOSITORY https://github.com/g-truc/glm.git GIT_TAG 1.0.1)
 FetchContent_MakeAvailable(glm)
 
-
 # Sources
-set(SOURCES
-    "src/base/ciao.cpp"
-)
+set(SOURCES "")
 
 
-set(TEST_FILE "test/01 image_read_write glm.cpp")
+set(TEST_FILE "test/01 image_read_write.cpp")
 add_executable(TEST ${TEST_FILE} ${SOURCES})
 
 target_link_libraries(TEST PRIVATE STBI)
