@@ -13,10 +13,15 @@ FetchContent_Declare(glm GIT_REPOSITORY https://github.com/g-truc/glm.git GIT_TA
 FetchContent_MakeAvailable(glm)
 
 # Sources
-set(SOURCES "")
+set(SOURCES
+    "src/base/objects/Object.cpp"
+    "src/base/World.cpp"
+    "src/base/Camera.cpp"
+    "src/base/Tracer.cpp"
+)
 
 
-set(TEST_FILE "test/01 image_read_write.cpp")
+set(TEST_FILE "test/02 Tracer.cpp")  # Must be set to the single cpp that contains the main
 add_executable(TEST ${TEST_FILE} ${SOURCES})
 
 target_link_libraries(TEST PRIVATE STBI)
