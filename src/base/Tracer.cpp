@@ -45,9 +45,8 @@ uint32_t Tracer::closestHitObjID(const Ray& ray) const {
     float hitDistance = std::numeric_limits<float>::max();
     uint32_t retID = 0;
 
-    for(uint32_t id = 1; id <= world->objs.size(); id++) {
-        std::shared_ptr<Object> o;
-        HitPayload payload = world->objs[id - 1]->hit(ray);  // TODO: 'id - 1'
+    for(uint32_t id = 1; id <= world->objs.size(); id++) {  // id = 0 --> no hit
+        HitPayload payload = world->objs[id - 1]->hit(ray);
 
         if(payload.isHit) {
             hitDistance = glm::min(hitDistance, payload.distance);

@@ -30,11 +30,7 @@ int main() {
 
     // Sphere s({0, 0, -10}, 10);
     std::shared_ptr<Sphere> s(new Sphere({0, 0, -10}, 1));
-    world.addObject(s);
-    std::shared_ptr<Sphere> t(new Sphere({0, 0, -10}, 1));
-    world.addObject(t);
-    std::shared_ptr<Sphere> u(new Sphere({0, 0, -10}, 1));
-    world.addObject(u);
+    world.objs.push_back(s);
 
     rtx.render();
     uint8_t* img = rtx.getImage();

@@ -23,9 +23,9 @@ HitPayload Sphere::hit(Ray ray) {
     float d = b * b - 4.0f * a * c;
 
     if(d < 0)
-        return {false, 0, 0};
+        return {false, 0};
 
     float tNear = (-b - glm::sqrt(d)) / 2.0f / a;
 
-    return {true, id, tNear};
+    return {true, tNear};
 }
