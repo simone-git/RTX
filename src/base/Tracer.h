@@ -15,8 +15,9 @@ class Tracer {
     std::vector<Ray> rays;
 
 
+    uint32_t closestHitObjID(const Ray&) const;
     void perPixel(uint32_t);
-    void travel(Ray&);
+    // void travel(const Ray&);
 
 public:
     Tracer(uint32_t, uint32_t, World*, Camera*);

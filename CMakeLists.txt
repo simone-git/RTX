@@ -15,6 +15,7 @@ FetchContent_MakeAvailable(glm)
 # Sources
 set(SOURCES
     "src/base/objects/Object.cpp"
+    "src/base/objects/Sphere.cpp"
     "src/base/World.cpp"
     "src/base/Camera.cpp"
     "src/base/Tracer.cpp"

@@ -3,10 +3,12 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/quaternion.hpp>
 
+// TODO: Check ray directions, which are not symmetric to the looking-at direction!!
+
 Camera::Camera(float verticalFOV, float nearClip, float farClip)
     : m_VerticalFOV(verticalFOV), m_NearClip(nearClip), m_FarClip(farClip) {
-	m_ForwardDirection = glm::vec3(0, 0, -1);
-	m_Position = glm::vec3(0, 0, 5);
+	m_ForwardDirection = glm::vec3(0, 0, 1);
+	m_Position = glm::vec3(0, 0, 0);
 }
 
 /*

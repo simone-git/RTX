@@ -28,11 +28,36 @@ void Tracer::render() {
 }
 
 void Tracer::perPixel(uint32_t p) {
-    image[p * 3] = 255;
-    image[p * 3 + 1] = 127;
-    image[p * 3 + 2] = 0;
+    const uint32_t id = closestHitObjID(rays[p]);
+
+    if(id > 0) {
+        image[p * 3] = 0;
+        image[p * 3 + 1] = 0;
+        image[p * 3 + 2] = 0;
+    } else {  // Capture free space
+        image[p * 3] = 46;
+        image[p * 3 + 1] = 200;
+        image[p * 3 + 2] = 239;
+    }
 }
 
-void Tracer::travel(Ray& ray) {
+uint32_t Tracer::closestHitObjID(const Ray& ray) const {
+    float hitDistance = std::numeric_limits<float>::max();
+    uint32_t retID = 0;
 
+    for(uint32_t id = 1; id <= world->objs.size(); id++) {
+        std::shared_ptr<Object> o;
+        HitPayload payload = world->objs[id - 1]->hit(ray);  // TODO: 'id - 1'
+
+        if(payload.isHit) {
+            hitDistance = glm::min(hitDistance, payload.distance);
+            retID = id;
+        }
+    }
+
+    return retID;
 }
+
+// void Tracer::travel(Ray& ray) {
+//
+// }
